@@ -307,6 +307,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.media.bufferpool2-V1-ndk.vendor
 
+# Linker config
+PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
+    $(DEVICE_PATH)/configs/linker.config.json
+
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2.xml \
