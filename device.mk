@@ -152,6 +152,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.lineage
 
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # Memtrack
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service

@@ -600,3 +600,6 @@ subsystem mem_buf_vm
 
 #Virtualization Attributes
 /dev/gunyah                 0666   root     root
+
+# Battery
+/sys/class/qcom-battery                                 battery_charging_enabled        0660    system  system
