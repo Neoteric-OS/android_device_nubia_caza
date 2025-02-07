@@ -473,6 +473,7 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.caza \
+    sensors.qsh_wrapper \
     android.hardware.sensors-service.multihal
 
 PRODUCT_PACKAGES += \
