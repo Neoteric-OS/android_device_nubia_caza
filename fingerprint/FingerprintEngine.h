@@ -58,6 +58,7 @@ class FingerprintEngine {
     std::pair<Error, int32_t> convertError(int32_t error);
     std::pair<AcquiredInfo, int32_t> convertAcquiredInfo(int32_t info);
 
+    std::mutex mMutex;
     std::mutex mMessageMutex;
     std::condition_variable mMessageCond;
     std::queue<fingerprint_msg_t> mMessageQueue;

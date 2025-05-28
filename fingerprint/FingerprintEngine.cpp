@@ -94,6 +94,8 @@ FingerprintEngine::~FingerprintEngine() {
 }
 
 void FingerprintEngine::setSessionCallback(ISessionCallback* cb) {
+    std::unique_lock<std::mutex> lock(mMutex);
+
     mCb = cb;
 }
 
@@ -142,6 +144,8 @@ void FingerprintEngine::setActiveGroup(int userId) {
 
 void FingerprintEngine::generateChallengeImpl() {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     uint64_t error = mDevice->generateChallenge(mDevice);
@@ -169,6 +173,8 @@ void FingerprintEngine::generateChallengeImpl() {
 
 void FingerprintEngine::revokeChallengeImpl(int64_t challenge) {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     uint64_t error = mDevice->revokeChallenge(mDevice, challenge);
@@ -228,6 +234,8 @@ bool FingerprintEngine::handleAcquiredOrErrorMessage(fingerprint_msg_t& msg, boo
 void FingerprintEngine::enrollImpl(const keymaster::HardwareAuthToken& hat,
                                    const std::future<void>& cancel) {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     hw_auth_token_t authToken;
@@ -266,6 +274,8 @@ void FingerprintEngine::enrollImpl(const keymaster::HardwareAuthToken& hat,
 
 void FingerprintEngine::authenticateImpl(int64_t operationId, const std::future<void>& cancel) {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     int error = mDevice->authenticate(mDevice, operationId);
@@ -317,6 +327,8 @@ void FingerprintEngine::detectInteractionImpl(const std::future<void>& /*cancel*
 
 void FingerprintEngine::enumerateEnrollmentsImpl() {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     std::vector<int32_t> enrollmentIds;
@@ -351,6 +363,8 @@ void FingerprintEngine::enumerateEnrollmentsImpl() {
 
 void FingerprintEngine::removeEnrollmentsImpl(const std::vector<int32_t>& enrollmentIds) {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     int error = mDevice->remove(mDevice, enrollmentIds.data(), enrollmentIds.size());
@@ -389,6 +403,8 @@ void FingerprintEngine::removeEnrollmentsImpl(const std::vector<int32_t>& enroll
 
 void FingerprintEngine::getAuthenticatorIdImpl() {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     uint64_t error = mDevice->getAuthenticatorId(mDevice);
@@ -416,6 +432,8 @@ void FingerprintEngine::getAuthenticatorIdImpl() {
 
 void FingerprintEngine::invalidateAuthenticatorIdImpl() {
     LOG(INFO) << __func__;
+
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     uint64_t error = mDevice->invalidateAuthenticatorId(mDevice);
@@ -579,6 +597,7 @@ void FingerprintEngine::onMessageWrapper(const fingerprint_msg_t* msg) {
 }
 
 void FingerprintEngine::clearLockout(bool dueToTimeout) {
+    std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
     if (isLockoutTimerStarted) isLockoutTimerAborted = true;
