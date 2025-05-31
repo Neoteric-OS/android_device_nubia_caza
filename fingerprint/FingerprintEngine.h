@@ -70,7 +70,7 @@ class FingerprintEngine {
 
   protected:
     void clearLockout(bool dueToTimeout = false);
-    void checkSensorLockout();
+    bool checkSensorLockout();
     void lockoutTimerExpired();
     void startLockoutTimer(int64_t timeout);
     bool isLockoutTimerSupported;

@@ -305,7 +305,9 @@ void FingerprintEngine::authenticateImpl(int64_t operationId, const std::future<
 
         mCb->onAuthenticationFailed();
         mLockoutTracker.addFailedAttempt();
-        checkSensorLockout();
+        if (checkSensorLockout()) {
+            break;
+        }
     }
 }
 
@@ -584,7 +586,7 @@ void FingerprintEngine::clearLockout(bool dueToTimeout) {
     mCb->onLockoutCleared();
 }
 
-void FingerprintEngine::checkSensorLockout() {
+bool FingerprintEngine::checkSensorLockout() {
     CHECK(mCb != nullptr);
 
     LockoutTracker::LockoutMode lockoutMode = mLockoutTracker.getMode();
@@ -592,12 +594,16 @@ void FingerprintEngine::checkSensorLockout() {
         LOG(ERROR) << "Fail: lockout permanent";
         mCb->onLockoutPermanent();
         isLockoutTimerAborted = true;
+        return true;
     } else if (lockoutMode == LockoutTracker::LockoutMode::kTimed) {
         int64_t timeLeft = mLockoutTracker.getLockoutTimeLeft();
         LOG(ERROR) << "Fail: lockout timed " << timeLeft;
         mCb->onLockoutTimed(timeLeft);
         if (!isLockoutTimerStarted) startLockoutTimer(timeLeft);
+        return true;
     }
+
+    return false;
 }
 
 void FingerprintEngine::startLockoutTimer(int64_t timeout) {
