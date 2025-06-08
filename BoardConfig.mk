@@ -58,7 +58,6 @@ TARGET_SCREEN_DENSITY := 480
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
-TARGET_MERGE_DTBS_ORDER := display/display/zte-lcd-supply-cerro.dtbo=1,cerro/zte-cerro-overlay.dtbo=2
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
