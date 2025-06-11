@@ -1,1 +1,2 @@
 type vendor_persist_fingerprint_file, file_type;
+type vendor_sysfs_touchpanel, fs_type, sysfs_type;
