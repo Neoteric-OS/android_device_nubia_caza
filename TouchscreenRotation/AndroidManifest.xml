@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2025 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.touchscreenrotation"
+    android:sharedUserId="android.uid.system">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:label="TouchscreenRotation"
+        android:persistent="true"
+        android:allowBackup="false">
+
+        <service
+            android:name=".RotationService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+    <uses-sdk
+        android:minSdkVersion="28"
+        android:targetSdkVersion="33" />
+</manifest>

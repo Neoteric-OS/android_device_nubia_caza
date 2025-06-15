@@ -314,6 +314,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
+# Touchscreen
+PRODUCT_PACKAGES += \
+    TouchscreenRotation
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \

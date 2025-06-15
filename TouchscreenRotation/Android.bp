@@ -1,0 +1,21 @@
+//
+// SPDX-FileCopyrightText: 2025 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "TouchscreenRotation",
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+
+    srcs: [
+        "src/**/*.java",
+    ],
+
+    optimize: {
+        enabled: false,
+    },
+
+    manifest: "AndroidManifest.xml",
+}
