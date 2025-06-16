@@ -172,6 +172,17 @@ vendor/lib64/libcacertclient.so
 vendor/lib64/libjnihelper.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
+# Camera app
+system_ext/etc/permissions/vendor.zte.hardware.camera.transferclient.xml
+system_ext/framework/vendor.zte.hardware.camera.transferclient.jar
+system/etc/permissions/com.android.camera.xml
+system/etc/pictureclassifier/CameraLabelGroups
+system/etc/pictureclassifier/LabelGroups
+system/etc/pictureclassifier/MultiScenePictureClassifier.tflite
+system/etc/pictureclassifier/PictureClassifier.tflite
+system/etc/pictureclassifier/PictureLabels
+system/priv-app/NubiaCamera/NubiaCamera.apk
+
 # Camera provider
 vendor/bin/hw/vendor.qti.camera.provider-service_64
 vendor/etc/init/vendor.qti.camera.provider-service_64.rc

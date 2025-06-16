@@ -1,0 +1,3 @@
+get_prop(platform_app, vendor_zte_prop)
+
+allow platform_app hal_camera_transfer_service:service_manager find;

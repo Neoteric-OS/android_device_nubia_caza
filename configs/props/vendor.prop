@@ -134,9 +134,15 @@ ro.bluetooth.a2dp_offload.supported=true
 # Camera
 camera.disable_zsl_mode=true
 persist.vendor.camera.flickerdetect.enable=1
+persist.vendor.camera.privapp.list=com.android.camera
 persist.vendor.camera.videoflicker.optimize=1
 ro.camera.enableCamera1MaxZsl=1
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
+ro.vendor.feature.camera_series_info=NubiaZ60Ultra
+ro.vendor.feature.camera_under_screen_sensor=true
+ro.vendor.feature.camera_zte_exif_model=nubia Z60 Ultra
+ro.vendor.feature.nubia.exif.module=NUBIA_Z60_ULTRA
+ro.vendor.product.ztename=nubia Z60 Ultra
+vendor.camera.aux.packagelist=com.android.camera
 
 # Crypto
 ro.crypto.metadata_init_delete_all_keys.enabled=true
