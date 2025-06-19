@@ -221,9 +221,6 @@ ro.hardware.keystore_desede=true
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-
 # QSPM
 ro.vendor.qspm.enable=true
 

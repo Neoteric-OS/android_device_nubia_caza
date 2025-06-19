@@ -103,6 +103,9 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Board
+TARGET_BOARD_PLATFORM := pineapple
+
 # Display
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator-service \
@@ -264,6 +267,10 @@ PRODUCT_PACKAGES += \
 # QSPA
 PRODUCT_PACKAGES += \
     vendor.qti.qspa-service
+
+# QTI Components
+TARGET_COMMON_QTI_COMPONENTS := \
+    perf
 
 # Rootdir
 PRODUCT_PACKAGES += \

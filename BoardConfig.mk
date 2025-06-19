@@ -191,7 +191,6 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := pineapple
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
@@ -213,7 +212,6 @@ BOOT_SECURITY_PATCH := 2024-11-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SELinux
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 

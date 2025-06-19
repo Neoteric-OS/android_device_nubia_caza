@@ -890,7 +890,6 @@ vendor/etc/init/qdcmss.rc
 vendor/etc/snapdragon_color_libs_config.xml
 vendor/lib64/libdpp_manager.so
 vendor/lib64/libdpps.so
-vendor/lib64/libgame_enhance.so
 vendor/lib64/libmemutils.so
 vendor/lib64/libqdcm-algo.so
 vendor/lib64/libqdcm-json-mode-parser.so
@@ -1494,14 +1493,8 @@ vendor/lib64/libqsocket.so
 vendor/lib64/libsmemlog.so
 vendor/lib64/libsystem_health_mon.so
 
-# QSPM
-vendor/bin/vendor.qti.qspmhal-service
-vendor/etc/init/vendor.qti.qspmhal-service.rc
-vendor/etc/seccomp_policy/qspm.policy
-vendor/etc/vintf/manifest/vendor.qti.qspmhal-service.xml
-vendor/lib64/libqspm-mem-utils-vendor.so
-vendor/lib64/vendor.qti.qspmhal-V1-ndk.so
-vendor/lib64/vendor.qti.qspmhal-impl.so
+# QTI service tracker
+vendor/lib64/vendor.qti.hardware.servicetrackeraidl-V1-ndk.so
 
 # RIL
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
