@@ -60,7 +60,7 @@ BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
 # Fingerprint
 SOONG_CONFIG_qtidisplay_udfps := true
@@ -70,19 +70,16 @@ TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.caza
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml \
-    $(DEVICE_PATH)/device_framework_matrix.xml
-
-DEVICE_FRAMEWORK_MANIFEST_FILE := \
-    $(DEVICE_PATH)/framework_manifest.xml
+    $(DEVICE_PATH)/configs/vintf/device_framework_matrix.xml
 
 DEVICE_MANIFEST_FILE := \
-    $(DEVICE_PATH)/manifest.xml
+    $(DEVICE_PATH)/configs/vintf/manifest.xml
 
 DEVICE_MATRIX_FILE := \
     hardware/qcom-caf/common/compatibility_matrix.xml
 
 ODM_MANIFEST_FILES := \
-    $(DEVICE_PATH)/manifest_odm.xml
+    $(DEVICE_PATH)/configs/vintf/manifest_odm.xml
 
 # Init Boot
 BOARD_INIT_BOOT_HEADER_VERSION := 4
@@ -195,6 +192,12 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := pineapple
+
+# Properties
+TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
