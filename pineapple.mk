@@ -487,7 +487,8 @@ PRODUCT_PACKAGES += \
 TARGET_COMMON_QTI_COMPONENTS := \
     av \
     perf \
-    telephony
+    telephony \
+    wfd
 
 # Radio
 PRODUCT_PACKAGES += \
