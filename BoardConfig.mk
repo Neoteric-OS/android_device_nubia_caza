@@ -5,6 +5,7 @@
 
 # A/B
 AB_OTA_UPDATER := true
+
 AB_OTA_PARTITIONS := \
     boot \
     dtbo \
@@ -44,9 +45,18 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
+# Boot control
+SOONG_CONFIG_NAMESPACES += ufsbsg
+SOONG_CONFIG_ufsbsg += ufsframework
+SOONG_CONFIG_ufsbsg_ufsframework := bsg
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := pineapple
 TARGET_NO_BOOTLOADER := true
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Camera
 TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED := true
@@ -68,15 +78,10 @@ TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.caza
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml \
     $(DEVICE_PATH)/configs/vintf/device_framework_matrix.xml
 
 DEVICE_MANIFEST_FILE := \
     $(DEVICE_PATH)/configs/vintf/manifest.xml
-
-DEVICE_MATRIX_FILE := \
-    hardware/qcom-caf/common/compatibility_matrix.xml
 
 ODM_MANIFEST_FILES := \
     $(DEVICE_PATH)/configs/vintf/manifest_odm.xml
@@ -158,13 +163,16 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/spu-kernel \
     qcom/opensource/mm-sys-kernel/ubwcp
 
+# OTA
+TARGET_OTA_ASSERT_DEVICE := caza
+
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_PVMFWIMAGE_PARTITION_SIZE := 1048576
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
+
 BOARD_SUPER_PARTITION_SIZE := 12884901888
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -206,10 +214,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
-
-# Security patch
-BOOT_SECURITY_PATCH := 2024-11-01
-VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
@@ -256,3 +260,6 @@ WIFI_HIDL_FEATURE_AWARE := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Include the proprietary files BoardConfig.
+include vendor/nubia/caza/BoardConfigVendor.mk

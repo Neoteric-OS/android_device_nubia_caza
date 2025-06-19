@@ -110,14 +110,14 @@ vendor/lib64/libeai_fixed.so
 vendor/lib64/libeai_float.so
 vendor/lib64/liblistensoundmodel2vendor.so
 # libmcs depends on libagm, which is a gnu makefile target
-vendor/lib64/libmcs.so;DISABLE_CHECKELF
+vendor/lib64/libmcs.so
 # libqtigefar depends on libar-pal, which is a gnu makefile target
-vendor/lib64/libqtigefar.so;DISABLE_CHECKELF
+vendor/lib64/libqtigefar.so
 vendor/lib64/libtensorflowlite_c.so
 vendor/lib64/libvui_dmgr.so
 vendor/lib64/libvui_dmgr_client.so
 # libvui_intf depends on liblx-osal, which is a gnu makefile target
-vendor/lib64/libvui_intf.so;DISABLE_CHECKELF
+vendor/lib64/libvui_intf.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Audio misc
@@ -415,7 +415,7 @@ vendor/lib64/libsr_x2_272_272_12.so
 vendor/lib64/libsr_x4_272_272_12.so
 vendor/lib64/libsynx.so
 vendor/lib64/libtensorflowlite_gpu_jni.so
-vendor/lib64/libtensorflowlite_jni.so;MODULE_SUFFIX=_vendor
+vendor/lib64/libtensorflowlite_jni.so
 vendor/lib64/libtflite_model_depurple_544_544.so
 vendor/lib64/libthreadutils.so
 vendor/lib64/libyuv_sr.so
@@ -875,7 +875,7 @@ vendor/etc/init/vendor.qti.diag.rc
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
 vendor/lib64/libdiag.so
 vendor/lib64/libdiagjni.so
-vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.diaghal@1.0.so
 
 # Display (Features)
 vendor/bin/feature_enabler_client
@@ -968,14 +968,14 @@ vendor/etc/dpm_vndr/vendor.dpm.conf
 vendor/etc/init/dpmQmiMgr.rc
 vendor/etc/init/vendor.dpmd.rc
 vendor/etc/vintf/manifest/dpm-saidl.xml
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib64/libdpmqmihal.so
 vendor/lib64/vendor.libdpmctmgr.so
 vendor/lib64/vendor.libdpmfdmgr.so
 vendor/lib64/vendor.libdpmframework.so
 vendor/lib64/vendor.libdpmtcm.so
-vendor/lib64/vendor.qti.hardware.dpmaidlservice-V1-ndk.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.dpmaidlservice-V1-ndk.so
+vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so
 vendor/lib64/vendor.qti.hardware.dpmservice@1.1.so
 
 # DCF
@@ -1040,7 +1040,7 @@ vendor/lib64/libfastcvdsp_stub.so
 vendor/lib64/libfastcvopt.so
 
 # Fingerprint
-vendor/lib64/hw/fingerprint.gf95xx.default.so;FIX_SONAME
+vendor/lib64/hw/fingerprint.gf95xx.default.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint.so
 
@@ -1230,7 +1230,7 @@ vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpsl.so
 vendor/lib64/librcc.so
-vendor/lib64/vendor.qti.ImsRtpService-V1-ndk.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 vendor/lib64/vendor.qti.ImsRtpService-aidl-Impl.so
 vendor/lib64/vendor.qti.hardware.radio.ims-V12-ndk.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so
@@ -1256,8 +1256,8 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.ims.rcssipaidlservice-V1-ndk.so
 vendor/lib64/vendor.qti.ims.rcsuceaidlservice-V1-ndk.so
-vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.imsrtpservice@3.1.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.imsrtpservice@3.0.so
+vendor/lib64/vendor.qti.imsrtpservice@3.1.so
 
 # Identity
 vendor/bin/hw/android.hardware.identity-service-qti
@@ -1340,7 +1340,7 @@ vendor/lib64/libqc2audio_base.so
 vendor/lib64/libqc2audio_basecodec.so
 vendor/lib64/libqc2audio_core.so
 vendor/lib64/libqc2audio_hooks.so
-vendor/lib64/libqc2audio_hwaudiocodec.so;DISABLE_CHECKELF
+vendor/lib64/libqc2audio_hwaudiocodec.so
 vendor/lib64/libqc2audio_platform.so
 vendor/lib64/libqc2audio_swaudiocodec.so
 vendor/lib64/libqc2audio_utils.so
@@ -1423,10 +1423,10 @@ vendor/etc/init/init.qccvendor.rc
 vendor/etc/vintf/manifest/vendor.qti.qccvndhal_aidl-service.xml
 vendor/lib64/libqcc_file_agent.so
 vendor/lib64/libqcc_sdk.so
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.2.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.2.so
+vendor/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so
 vendor/lib64/vendor.qti.qccvndhal_aidl-halimpl.so
 
 # QCV
@@ -1453,10 +1453,10 @@ vendor/lib64/libqesdk2_0.so
 vendor/lib64/libqesdk_manager.so
 vendor/lib64/libqesdoem_query_sys.so
 vendor/lib64/vendor.qti.qesdhal-impl.so
-vendor/lib64/vendor.qti.qesdhal@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.qesdhal@1.1.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.qesdhal@1.2.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.qesdhal@1.3.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.qesdhal@1.0.so
+vendor/lib64/vendor.qti.qesdhal@1.1.so
+vendor/lib64/vendor.qti.qesdhal@1.2.so
+vendor/lib64/vendor.qti.qesdhal@1.3.so
 vendor/lib64/vendor.qti.qesdhalaidl-V1-ndk.so
 vendor/lib64/vendor.qti.qesdsys-V3-ndk.so
 vendor/lib64/vendor.qti.qesdsys-V4-ndk.so
@@ -1971,5 +1971,5 @@ vendor/lib64/libwfduibcsinkinterface_vendor.so
 vendor/lib64/libwfduibcsrc_vendor.so
 vendor/lib64/libwfduibcsrcinterface_vendor.so
 vendor/lib64/libwfdutils_proprietary.so
-vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
