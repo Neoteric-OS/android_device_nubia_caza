@@ -502,4 +502,8 @@
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
+
+    <!-- The default intensity level for haptic feedback. See Settings.System.HAPTIC_FEEDBACK_INTENSITY
+         for more details on the constant values and meanings. -->
+    <integer name="config_defaultHapticFeedbackIntensity">3</integer>
 </resources>
