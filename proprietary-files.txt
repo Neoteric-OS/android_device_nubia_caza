@@ -1837,6 +1837,11 @@ vendor/etc/vintf/manifest/android.hardware.drm-service.xml
 vendor/etc/init/init.vendor.wlan.rc
 vendor/bin/cnss-daemon
 
+# WiFi Configs
+vendor/etc/wifi/wpa_supplicant_overlay.conf
+vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini:vendor/etc/wifi/WCNSS_qcom_cfg.ini
+vendor/etc/wifi/p2p_supplicant_overlay.conf
+
 # WiFi Display
 vendor/bin/wfdhdcphalservice
 vendor/bin/wfdvndservice

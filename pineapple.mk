@@ -575,9 +575,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.hostapd-V1-ndk.vendor \
     vendor.qti.hardware.wifi.supplicant-V1-ndk.vendor
 
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/wifi,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
-
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
     firmware_wifimac.dat_symlink \
