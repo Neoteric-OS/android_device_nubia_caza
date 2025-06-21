@@ -13,6 +13,7 @@
 
 #include <condition_variable>
 #include <future>
+#include <queue>
 #include <string>
 #include <vector>
 
