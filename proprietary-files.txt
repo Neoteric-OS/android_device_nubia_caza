@@ -99,7 +99,7 @@ vendor/lib64/libAlacSwDec.so
 vendor/lib64/libApeSwDec.so
 vendor/lib64/libEvrcSwCodec.so
 vendor/lib64/libFlacSwDec.so
-vendor/lib64/libPeripheralStateUtils.so
+-vendor/lib64/libPeripheralStateUtils.so
 vendor/lib64/libVoiceSdk.so
 vendor/lib64/libadm.so
 vendor/lib64/libcapiv2svacnnvendor.so
@@ -117,7 +117,7 @@ vendor/lib64/libtensorflowlite_c.so
 vendor/lib64/libvui_dmgr.so
 vendor/lib64/libvui_dmgr_client.so
 # libvui_intf depends on liblx-osal, which is a gnu makefile target
-vendor/lib64/libvui_intf.so
+-vendor/lib64/libvui_intf.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Audio misc
