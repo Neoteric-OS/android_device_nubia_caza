@@ -1,2 +1,5 @@
+# Thermal
+vendor_internal_prop(vendor_thermal_prop)
+
 # ZTE
 vendor_public_prop(vendor_zte_prop)
