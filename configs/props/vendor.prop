@@ -192,6 +192,9 @@ ro.vendor.qspm.enable=true
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
 
+# RCS
+persist.vendor.rcs.singlereg.feature=1
+
 # RIL
 persist.radio.sap_silent_pin=true
 persist.vendor.radio.5g_icon_rule=D
