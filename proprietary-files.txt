@@ -129,6 +129,10 @@ vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
 
+# Audio Configs
+vendor/etc/audio/sku_pineapple/mixer_paths_pineapple_mtp.xml
+vendor/etc/usecaseKvManager.xml
+
 # Audio FX modules
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libshoebox.so
