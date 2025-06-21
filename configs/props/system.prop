@@ -1,3 +1,8 @@
+# Media
+media.aac_51_output_enabled=true
+media.settings.xml=/vendor/etc/media_profiles_pineapple.xml
+ro.media.recorder-max-base-layer-fps=60
+
 # WiFi display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
