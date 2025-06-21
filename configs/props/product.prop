@@ -1,2 +1,6 @@
 # Audio
 audio.offload.min.duration.secs=30
+
+# RKPD
+remote_provisioning.enable_rkpd=true
+remote_provisioning.hostname=remoteprovisioning.googleapis.com
