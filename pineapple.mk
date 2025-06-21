@@ -347,15 +347,12 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    SettingsOverlayCOMMON \
-    SettingsOverlayVEUX
-
-PRODUCT_PACKAGES += \
-    CarrierConfigResCommon_Sys \
-    FrameworksResTarget_Vendor \
-    SystemUIResCommon_Sys \
-    TelephonyResCommon_Sys \
-    WifiResCommon_Sys \
+    CarrierConfig \
+    FrameworksResCommon \
+    SettingsResCommon \
+    SystemUIResCommon \
+    TelephonyResCommon \
+    WifiResCommon \
     WifiResOverlay \
     WifiResTarget \
     WifiResTarget_spf

@@ -4,6 +4,7 @@
 //
 
 runtime_resource_overlay {
-    name: "FrameworksResTarget_Vendor",
+    name: "CarrierConfig",
     device_specific: true,
+    aaptflags: ["--keep-raw-values"],
 }
