@@ -461,6 +461,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom.vendor_ramdisk
 
 PRODUCT_PACKAGES += \
+    init.caza.rc \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
