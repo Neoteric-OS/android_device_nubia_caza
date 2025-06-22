@@ -306,7 +306,9 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl@1.2.vendor \
     libcodec2_soft_common.vendor \
     libcodec2_vndk.vendor \
+    libmediautils_vendor.vendor \
     libmm-omxcore \
+    libstagefright_aidl_bufferpool2.vendor \
     libstagefright_softomx_plugin.vendor \
     libstagefright_softomx.vendor \
     libsfplugin_ccodec_utils.vendor \
