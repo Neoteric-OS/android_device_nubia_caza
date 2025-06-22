@@ -1,1 +1,5 @@
 add_service(hal_camera_default, hal_camera_transfer_service)
+
+allow hal_camera_default mnt_vendor_file:dir search;
+allow hal_camera_default vendor_persist_laser_file:dir rw_dir_perms;
+allow hal_camera_default vendor_persist_laser_file:file create_file_perms;

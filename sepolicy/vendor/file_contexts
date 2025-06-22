@@ -1,6 +1,9 @@
 # Audio
 /mnt/vendor/persist/smartpa_cali_data(/.*)?                       u:object_r:vendor_persist_audio_file:s0
 
+# Camera
+/mnt/vendor/persist/laser(/.*)?                                   u:object_r:vendor_persist_laser_file:s0
+
 # Fingerprint
 /dev/goodix_fp                                                          u:object_r:fingerprint_device:s0
 /data/vendor/goodix(/.*)?                                               u:object_r:fingerprint_vendor_data_file:s0
