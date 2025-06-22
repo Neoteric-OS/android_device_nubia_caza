@@ -78,6 +78,14 @@ function blob_fixup() {
         vendor/lib64/hw/sensors.hal.tof.so)
             perl -i -pe 's/\x00input\x00/\x00fakei\x00/g' "${2}"
             ;;
+        vendor/lib64/libNubiaImageAlgorithmVD.so)
+            echo "Processing ${2} with newer patchelf..."
+            "${PATCHELF}" --clear-symbol-version AHardwareBuffer_allocate "${2}"
+            "${PATCHELF}" --clear-symbol-version AHardwareBuffer_describe "${2}"
+            "${PATCHELF}" --clear-symbol-version AHardwareBuffer_lock "${2}"
+            "${PATCHELF}" --clear-symbol-version AHardwareBuffer_release "${2}"
+            "${PATCHELF}" --clear-symbol-version AHardwareBuffer_unlock "${2}"
+            ;;
         vendor/lib64/libqcodec2_core.so)
             grep -q "libcodec2_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcodec2_shim.so" "${2}"
             ;;
