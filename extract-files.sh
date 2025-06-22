@@ -75,6 +75,9 @@ function blob_fixup() {
         vendor/etc/wifi/wpa_supplicant_overlay.conf)
             sed -i 's/^driver_param="no_rrm=1"/driver_param="use_p2p_group_interface=1 no_rrm=1"/' "${2}"
             ;;
+        vendor/lib64/hw/sensors.hal.tof.so)
+            perl -i -pe 's/\x00input\x00/\x00fakei\x00/g' "${2}"
+            ;;
         vendor/lib64/libqcodec2_core.so)
             grep -q "libcodec2_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcodec2_shim.so" "${2}"
             ;;
