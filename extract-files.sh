@@ -56,6 +56,16 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system/priv-app/NubiaCamera/NubiaCamera.apk)
+            local temp_dir=$(mktemp -d)
+            apktool d -f -r "${2}" -o "${temp_dir}"
+            local smali_file=$(find "${temp_dir}" -name "*.smali" -exec grep -l "SettingHighFps" {} \; 2>/dev/null | head -1)
+            if [[ -n "$smali_file" ]]; then
+                sed -i 's/invoke-interface {p1, v0, v1}, Ljava\/util\/Map;->put(Ljava\/lang\/Object;Ljava\/lang\/Object;)Ljava\/lang\/Object;/invoke-interface {p1, v0, v2}, Ljava\/util\/Map;->put(Ljava\/lang\/Object;Ljava\/lang\/Object;)Ljava\/lang\/Object;/' "$smali_file"
+            fi
+            apktool b "${temp_dir}" -o "${2}"
+            rm -rf "${temp_dir}"
+            ;;
         system_ext/lib64/libwfdmmsrc_system.so)
             grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
             ;;
