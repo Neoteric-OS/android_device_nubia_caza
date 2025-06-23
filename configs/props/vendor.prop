@@ -164,6 +164,7 @@ vendor.gatekeeper.is_security_level_spu=0
 debug.sf.latch_unsignaled=1
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
+graphics.gpu.profiler.support=true
 persist.sys.sf.native_mode=258
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
