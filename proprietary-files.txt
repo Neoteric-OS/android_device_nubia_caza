@@ -1016,6 +1016,10 @@ vendor/etc/display/qdcm_calib_data_BF068_RM692H0_Full_Screen_MAGIC9_DSC_FHD_6P8I
 vendor/etc/display/qdcm_calib_data_BF068_RM692H0_Full_Screen_PLUS_DSC_FHD_6P8Inch.json
 vendor/etc/ltm_config_BF068_RM692H0_Full_Screen_MAGIC9_DSC_FHD_6P8Inch.xml
 
+# Display Config
+vendor/etc/displayconfig/display_id_4630946566460097411.xml
+vendor/etc/displayconfig/display_id_4630947039571902851.xml
+
 # Display postprocessing
 vendor/bin/hw/vendor.qti.hardware.display.color-service
 vendor/bin/ppd
