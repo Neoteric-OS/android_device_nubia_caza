@@ -112,6 +112,7 @@ bluetooth.profile.opp.enabled=true
 bluetooth.profile.pan.nap.enabled=true
 bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
+bluetooth.profile.sap.server.enabled=true
 bluetooth.device_id.vendor_id=0x001D
 persist.bluetooth.a2dp_offload.disabled=false
 persist.vendor.bt.aac_frm_ctl.enabled=true
@@ -155,8 +156,14 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 drm.service.enabled=true
 vendor.wv.oemcrypto.debug.enable_hlos_data_path=true
 
+# FRP
+ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
 # Gatekeeper
 vendor.gatekeeper.is_security_level_spu=0
+
+# GNSS
+persist.backup.ntpServer=0.pool.ntp.org
 
 # Graphics
 debug.sf.latch_unsignaled=1
