@@ -69,7 +69,7 @@ FingerprintEngine::FingerprintEngine() : mDevice(openHal(nullptr, "fingerprint.g
             }
 
             bool fodUiReady = readBool(fd);
-            LOG(ERROR) << "fodUiReady: " << fodUiReady;
+            LOG(INFO) << "fodUiReady: " << fodUiReady;
             int error = mDevice->sendCustomizedCommand(mDevice, 30, fodUiReady);
             if (error) {
                 LOG(ERROR) << "sendCustomizedCommand failed: " << error;
