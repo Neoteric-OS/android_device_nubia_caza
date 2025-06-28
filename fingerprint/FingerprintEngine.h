@@ -52,7 +52,7 @@ class FingerprintEngine {
 
     static void onMessageWrapper(const fingerprint_msg_t* msg);
     void onMessage(const fingerprint_msg_t* msg);
-    fingerprint_msg_t waitForMessageOrCancel(const std::future<void>& cancel);
+    std::thread waitForCancel(const std::future<void>& cancel, std::atomic<bool>& stopFlag);
     fingerprint_msg_t waitForMessage();
 
     void printError(std::pair<Error, int32_t> ec);

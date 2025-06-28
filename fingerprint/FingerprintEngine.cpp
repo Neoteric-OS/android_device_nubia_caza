@@ -231,6 +231,24 @@ bool FingerprintEngine::handleAcquiredOrErrorMessage(fingerprint_msg_t& msg, boo
     return false;
 }
 
+std::thread FingerprintEngine::waitForCancel(const std::future<void>& cancel,
+                                             std::atomic<bool>& stop) {
+    return std::thread([&] {
+        while (!stop.load()) {
+            if (cancel.wait_for(1s) != std::future_status::ready) continue;
+
+            LOG(INFO) << "Found cancel condition";
+            fingerprint_msg_t msg = {
+                    .type = FINGERPRINT_ERROR,
+                    .data.error = FINGERPRINT_ERROR_CANCELED,
+            };
+            onMessage(&msg);
+
+            return;
+        }
+    });
+}
+
 void FingerprintEngine::enrollImpl(const keymaster::HardwareAuthToken& hat,
                                    const std::future<void>& cancel) {
     LOG(INFO) << __func__;
@@ -248,8 +266,11 @@ void FingerprintEngine::enrollImpl(const keymaster::HardwareAuthToken& hat,
         return;
     }
 
+    std::atomic<bool> stop;
+    std::thread cancelThread = waitForCancel(cancel, stop);
+
     while (true) {
-        auto msg = waitForMessageOrCancel(cancel);
+        auto msg = waitForMessage();
 
         bool exit = false;
         auto handled = handleAcquiredOrErrorMessage(msg, exit);
@@ -270,6 +291,9 @@ void FingerprintEngine::enrollImpl(const keymaster::HardwareAuthToken& hat,
             break;
         }
     }
+
+    stop.store(true);
+    cancelThread.join();
 }
 
 void FingerprintEngine::authenticateImpl(int64_t operationId, const std::future<void>& cancel) {
@@ -286,8 +310,11 @@ void FingerprintEngine::authenticateImpl(int64_t operationId, const std::future<
         return;
     }
 
+    std::atomic<bool> stop;
+    std::thread cancelThread = waitForCancel(cancel, stop);
+
     while (true) {
-        auto msg = waitForMessageOrCancel(cancel);
+        auto msg = waitForMessage();
 
         bool exit = false;
         auto handled = handleAcquiredOrErrorMessage(msg, exit);
@@ -319,6 +346,9 @@ void FingerprintEngine::authenticateImpl(int64_t operationId, const std::future<
             break;
         }
     }
+
+    stop.store(true);
+    cancelThread.join();
 }
 
 void FingerprintEngine::detectInteractionImpl(const std::future<void>& /*cancel*/) {
@@ -528,41 +558,6 @@ std::pair<AcquiredInfo, int32_t> FingerprintEngine::convertAcquiredInfo(int32_t 
         res.second = 0;
     }
     return res;
-}
-
-fingerprint_msg_t FingerprintEngine::waitForMessageOrCancel(const std::future<void>& cancel) {
-    LOG(INFO) << __func__;
-
-    std::unique_lock<std::mutex> lock(mMessageMutex);
-
-    auto msgCondition = [this] { return !mMessageQueue.empty(); };
-    auto cancelCondition = [&cancel] { return cancel.wait_for(0ms) == std::future_status::ready; };
-    auto condition = [&msgCondition, &cancelCondition] {
-        return msgCondition() || cancelCondition();
-    };
-
-    while (true) {
-        mMessageCond.wait_for(lock, 10ms, condition);
-
-        if (condition()) {
-            break;
-        }
-    };
-
-    fingerprint_msg_t msg;
-    if (cancelCondition()) {
-        LOG(INFO) << "Found cancel condition";
-        msg = {
-                .type = FINGERPRINT_ERROR,
-                .data.error = FINGERPRINT_ERROR_CANCELED,
-        };
-    } else {
-        msg = mMessageQueue.front();
-        LOG(INFO) << "Found message type: " << msg.type;
-        mMessageQueue.pop();
-    }
-
-    return msg;
 }
 
 fingerprint_msg_t FingerprintEngine::waitForMessage() {
