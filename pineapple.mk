@@ -257,10 +257,6 @@ PRODUCT_PACKAGES += \
 
 # Keymint
 PRODUCT_PACKAGES += \
-    android.hardware.authsecret-service.nxp \
-    android.hardware.weaver-service.nxp
-
-PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor \
     android.hardware.authsecret-V1-ndk.vendor \
     android.hardware.gatekeeper-V1-ndk.vendor \
