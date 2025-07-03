@@ -117,6 +117,7 @@ msm_video.ko
 msm-eva.ko
 msm-mmrm.ko
 nb7vpq904m.ko
+nubia_hw_version.ko
 nvmem_qfprom.ko
 panel_event_notifier.ko
 pci-msm-drv.ko

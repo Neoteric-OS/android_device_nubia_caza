@@ -125,6 +125,7 @@ msm_show_resume_irq.ko
 msm_sysstats.ko
 msm-mmrm.ko
 nb7vpq904m.ko
+nubia_hw_version.ko
 nvmem_qcom-spmi-sdam.ko
 nvmem_qfprom.ko
 panel_event_notifier.ko
