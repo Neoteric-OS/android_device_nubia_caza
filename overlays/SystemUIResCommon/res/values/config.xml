@@ -33,6 +33,9 @@
     <!--  ID for the camera that needs extra protection -->
     <string name="config_protectedCameraId" translatable="false">1</string>
 
+    <!-- Physical ID for the camera of outer display that needs extra protection -->
+    <string translatable="false" name="config_protectedPhysicalCameraId">1</string>
+
     <!-- Microns/ums (1000 um = 1mm) per pixel for the given device. If unspecified, UI that
         relies on this value will not be sized correctly. -->
     <item name="pixel_pitch" format="float" type="dimen">59.77</item>
