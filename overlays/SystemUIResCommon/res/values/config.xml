@@ -50,4 +50,7 @@
 
     <!-- StatusBar burn-in protection -->
     <bool name="config_statusBarBurnInProtection">true</bool>
+    
+    <!-- The padding on the start of the statusbar -->
+    <dimen name="status_bar_padding_start">20px</dimen>
 </resources>
