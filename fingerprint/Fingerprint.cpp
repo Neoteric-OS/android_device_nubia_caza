@@ -38,8 +38,8 @@ ndk::ScopedAStatus Fingerprint::getSensorProps(std::vector<SensorProps>* out) {
             FingerprintSensorType::UNDER_DISPLAY_OPTICAL,
             {{
                     .sensorLocationX = 558,
-                    .sensorLocationY = 1858,
-                    .sensorRadius = 94,
+                    .sensorLocationY = 1848,
+                    .sensorRadius = 107,
             }},
             false /* supportsNavigationGestures */,
             false /* supportsDetectInteraction */,
