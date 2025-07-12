@@ -493,6 +493,7 @@ void FingerprintEngine::resetLockoutImpl(const keymaster::HardwareAuthToken& /*h
     LOG(INFO) << __func__;
 
     clearLockout();
+    if (isLockoutTimerStarted) isLockoutTimerAborted = true;
 }
 
 ndk::ScopedAStatus FingerprintEngine::onPointerDownImpl(int32_t /*pointerId*/, int32_t /*x*/,
@@ -595,7 +596,6 @@ void FingerprintEngine::clearLockout(bool dueToTimeout) {
     std::unique_lock<std::mutex> lock(mMutex);
     CHECK(mCb != nullptr);
 
-    if (isLockoutTimerStarted) isLockoutTimerAborted = true;
     mLockoutTracker.reset(dueToTimeout);
     mCb->onLockoutCleared();
 }

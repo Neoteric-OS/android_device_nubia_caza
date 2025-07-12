@@ -9,19 +9,21 @@
 
 namespace aidl::android::hardware::biometrics::fingerprint {
 
-void LockoutTracker::reset(bool clearAttemptCounter) {
-    if (clearAttemptCounter) {
+void LockoutTracker::reset(bool dueToTimeout) {
+    if (!dueToTimeout) {
         mFailedCount = 0;
     }
+    mFailedCountTimed = 0;
     mLockoutTimedStart = 0;
     mCurrentMode = LockoutMode::kNone;
 }
 
 void LockoutTracker::addFailedAttempt() {
     mFailedCount++;
+    mFailedCountTimed++;
     if (mFailedCount >= LOCKOUT_PERMANENT_THRESHOLD) {
         mCurrentMode = LockoutMode::kPermanent;
-    } else if (mFailedCount >= LOCKOUT_TIMED_THRESHOLD) {
+    } else if (mFailedCountTimed >= LOCKOUT_TIMED_THRESHOLD) {
         if (mCurrentMode == LockoutMode::kNone) {
             mCurrentMode = LockoutMode::kTimed;
             mLockoutTimedStart = Util::getSystemNanoTime();
