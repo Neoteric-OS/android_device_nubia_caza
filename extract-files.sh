@@ -66,12 +66,6 @@ function blob_fixup() {
             apktool b "${temp_dir}" -o "${2}"
             rm -rf "${temp_dir}"
             ;;
-        system_ext/lib64/libwfdmmsrc_system.so)
-            grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
-            ;;
-        system_ext/lib64/libwfdnative.so)
-            grep -q "libinput_shim.so" "${2}" || "${PATCHELF}" --add-needed "libinput_shim.so" "${2}"
-            ;;
         vendor/etc/wifi/wpa_supplicant_overlay.conf)
             sed -i 's/^driver_param="no_rrm=1"/driver_param="use_p2p_group_interface=1 no_rrm=1"/' "${2}"
             ;;
