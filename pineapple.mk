@@ -489,6 +489,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
+    libbinder_shim.vendor \
     libcodec2_shim \
     libhidlbase_shim
 

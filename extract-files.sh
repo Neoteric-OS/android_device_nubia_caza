@@ -66,6 +66,9 @@ function blob_fixup() {
             apktool b "${temp_dir}" -o "${2}"
             rm -rf "${temp_dir}"
             ;;
+        vendor/bin/qcc-vendor | vendor/bin/qms | vendor/bin/xtra-daemon | vendor/lib64/libcne.so | vendor/lib64/libqcc_sdk.so | vendor/lib64/libqms_client.so)
+            grep -q "libbinder_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbinder_shim.so" "${2}"
+            ;;
         vendor/etc/wifi/wpa_supplicant_overlay.conf)
             sed -i 's/^driver_param="no_rrm=1"/driver_param="use_p2p_group_interface=1 no_rrm=1"/' "${2}"
             ;;
@@ -85,6 +88,7 @@ function blob_fixup() {
             ;;
         vendor/lib64/vendor.libdpmframework.so)
             grep -q "libhidlbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
+            grep -q "libbinder_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbinder_shim.so" "${2}"
             ;;
         vendor/lib64/libril-db.so)
             sed -i 's/persist\.vendor\.radio\.poweron_opt/persist.vendor.radio.poweron_ign/g' "${2}"
