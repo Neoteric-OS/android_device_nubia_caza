@@ -181,7 +181,7 @@ system/etc/pictureclassifier/LabelGroups
 system/etc/pictureclassifier/MultiScenePictureClassifier.tflite
 system/etc/pictureclassifier/PictureClassifier.tflite
 system/etc/pictureclassifier/PictureLabels
-system/priv-app/NubiaCamera/NubiaCamera.apk
+system/priv-app/NubiaCamera/NubiaCamera.apk;OVERRIDES=Snap,Camera2,GoogleCameraGo,Aperture
 
 # Camera provider
 vendor/bin/hw/vendor.qti.camera.provider-service_64
