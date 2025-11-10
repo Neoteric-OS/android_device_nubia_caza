@@ -341,6 +341,12 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     Tag
 
+# NubiaParts
+$(call inherit-product, packages/apps/NubiaParts/config.mk)
+
+PRODUCT_PACKAGES += \
+    NubiaGameSwitch
+
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfig \
