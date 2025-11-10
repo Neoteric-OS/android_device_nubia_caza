@@ -166,7 +166,6 @@ vendor.gatekeeper.is_security_level_spu=0
 persist.backup.ntpServer=0.pool.ntp.org
 
 # Graphics
-debug.sf.latch_unsignaled=1
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
 graphics.gpu.profiler.support=true
